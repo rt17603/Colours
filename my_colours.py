@@ -20,39 +20,39 @@ def find_rainbow_palette(n):
 
     for i in range(n):
         # red
-    	if ind1d == 0:
-    	    ind3d = [1, 0, 0]
+        if ind1d == 0:
+            ind3d = [1, 0, 0]
         # -> yellow
-    	elif ind1d <= 1:
-    	    ind3d = [1, ind1d, 0]
+        elif ind1d <= 1:
+            ind3d = [1, ind1d, 0]
         # -> green
-    	elif ind1d <= 2:
-    	    ind3d = [2-ind1d, 1, 0]
+        elif ind1d <= 2:
+            ind3d = [2-ind1d, 1, 0]
         # -> cyan    	
-    	elif ind1d <= 3:
-    	    ind3d = [0, 1, ind1d-2]
+        elif ind1d <= 3:
+            ind3d = [0, 1, ind1d-2]
         # -> blue
-    	elif ind1d <= 4:
-    	    ind3d = [0, 4-ind1d, 1]
+        elif ind1d <= 4:
+            ind3d = [0, 4-ind1d, 1]
         # -> magenta
-    	elif ind1d <= 5:
-    	    ind3d = [ind1d-4, 0, 1]
+        elif ind1d <= 5:
+            ind3d = [ind1d-4, 0, 1]
+        
+        # convert from fractional to 0 to 255 format
+        ind3d = [int(ind * 255) for ind in ind3d]
+        
+        # commented print statement, in case debugging is needed
+        #print(i, ind1d, ind3d)
+        
+        # convert to hex format
+        hex_colour = rgb_to_hex(ind3d)
+        
+        # add to our palette
+        palette.append(hex_colour)
+        
+        ind1d += di
 
-    	# convert from fractional to 0 to 255 format
-    	ind3d = [int(ind * 255) for ind in ind3d]
-    	
-    	# commented print statement, in case debugging is needed
-    	#print(i, ind1d, ind3d)
-    	
-    	# convert to hex format
-    	hex_colour = rgb_to_hex(ind3d)
-    	
-    	# add to our palette
-    	palette.append(hex_colour)
-    	
-    	ind1d += di
-    	
-    return palette
+return palette
 
 
 def rgb_to_hex(rgb):
@@ -65,7 +65,7 @@ def rgb_to_hex(rgb):
     Returns:
        str: the colour in hex format (a 7 character string)
     """
-
+    
     # a list with the characters as integers
     hexi = [0] * 6
     # a list with the characters fully converted to hex format
@@ -95,8 +95,8 @@ def rgb_to_hex(rgb):
              hexs[j]='f'
         else:
             hexs[j]=hexi[j]
-            
+        
         # convert the output to a string
         hex_string = '#'+str(hexs[0])+str(hexs[1])+str(hexs[2])+str(hexs[3])+str(hexs[4])+str(hexs[5])
-
+    
     return hex_string

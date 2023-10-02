@@ -52,7 +52,7 @@ def find_rainbow_palette(n):
         
         ind1d += di
 
-return palette
+    return palette
 
 
 def rgb_to_hex(rgb):

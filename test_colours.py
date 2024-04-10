@@ -7,6 +7,7 @@ def test_rgb_to_hex():
     '''Test rgb_to_hex function produces expected result'''
     raise NotImplementedError
 
+    
 def test_rainbow_palette():
     '''Test rainbow_palette function produces expected result'''
     raise NotImplementedError

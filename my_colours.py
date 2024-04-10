@@ -55,7 +55,7 @@ def find_rainbow_palette(n):
     return palette
 
 
-def rgb_to_hex(rgb):
+def rgb_to_hex(rgb, print_out=True):
     """
     This function converts a colour from rgb format to hex format
     
@@ -99,4 +99,26 @@ def rgb_to_hex(rgb):
         # convert the output to a string
         hex_string = '#'+str(hexs[0])+str(hexs[1])+str(hexs[2])+str(hexs[3])+str(hexs[4])+str(hexs[5])
     
+    if print_out:
+        print_coloured_string(f"Hex string: {hex_string}", rgb)
+    
     return hex_string
+
+
+def print_coloured_string(string, rgb):
+    """
+    Print string to terminal coloured by an input rgb value.
+    
+    Note: This uses ANSI characters. This will function as expected for a true-color aware terminal but may not produce a coloured output otherwise.
+    
+    Args:
+        string (str): String value to be printed
+        rgb (list): the colour in rgb format (a list of size 3 with values from 0 to 255)
+    
+    Returns:
+       None: prints to screen
+    """
+    reset_colour = '\033[0m'
+    r, g, b = rgb
+    colour_string = f'\033[38;2;{r};{g};{b}m'
+    print(colour_string + string + reset_colour)

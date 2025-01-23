@@ -1,5 +1,12 @@
 """
-This module contains functions for generating a rainbow colour palette
+This module contains functions for generating a rainbow colour palette and includes
+conversion between rgb and hex colour codes.
+
+Terminology
+ - hex is short for hexadecimal meaning that each bit can be represented by one of 16
+characters: 0-9A-F [inclusive].
+ - rgb means 3 colour channels for red, green and blue where each channel is a value
+between 0 and 255 [inclusive].
 """
 
 # returns an array of html colour codes for n evenly spaced colours from red (#ff0000) to magenta (#ff00ff)
